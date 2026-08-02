@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Krishna@108
+      POSTGRES_DB: paycraft
+    ports:
+      - "5433:5432"
+    volumes:
+      # This automatically creates your tables on startup!
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./database/seed.sql:/docker-entrypoint-initdb.d/2-seed.sql
+
+  backend:
+    build: ./backend
+    ports:
+      - "4000:4000"
+    environment:
+      DB_USER: postgres
+      DB_HOST: db
+      DB_NAME: paycraft
+      DB_PASSWORD: Krishna@108
+      DB_PORT: 5432
+      JWT_SECRET: supersecret123
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:4000/api
+    depends_on:
+      - backend

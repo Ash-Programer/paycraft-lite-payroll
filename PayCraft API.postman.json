@@ -1,0 +1,270 @@
+{
+    "info": {
+        "name": "PayCraft API",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Login ",
+            "description": "",
+            "event": [],
+            "auth": {},
+            "request": {
+                "auth": {},
+                "method": "POST",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"email\": \"admin@paycraft.com\",\r\n    \"password\": \"password123\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:4000/api/login",
+                    "path": [
+                        "api",
+                        "login"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "protocol": "http",
+                    "port": "4000",
+                    "query": [],
+                    "variable": []
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {
+                "strictSSL": false,
+                "followRedirects": true
+            }
+        },
+        {
+            "name": "Add Employee",
+            "description": "",
+            "event": [],
+            "auth": {},
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkhSIiwiZW1wbG95ZWVJZCI6bnVsbCwiaWF0IjoxNzg1NTY0NDQxLCJleHAiOjE3ODU2NTA4NDF9.QpL6dtt5kld-Uqv3l0Nq-MIG_sJEpVcOwIRGfP26vCE",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@work.com\",\r\n  \"password\": \"password123\",\r\n  \"pan\": \"ABCDE1234F\",\r\n  \"bank_account\": \"1234567890\",\r\n  \"department\": \"Engineering\",\r\n  \"designation\": \"Software Engineer\",\r\n  \"doj\": \"2023-01-01\",\r\n  \"monthly_ctc\": 100000,\r\n  \"structure\": {\r\n    \"basic\": 50000,\r\n    \"hra\": 20000,\r\n    \"special_allowance\": 25000,\r\n    \"employer_pf\": 5000\r\n  }\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:4000/api/employees",
+                    "path": [
+                        "api",
+                        "employees"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "protocol": "http",
+                    "port": "4000",
+                    "query": [],
+                    "variable": []
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {
+                "strictSSL": false,
+                "followRedirects": true
+            }
+        },
+        {
+            "name": "Generate Payslip and Send Email of the Payslip",
+            "description": "",
+            "event": [],
+            "auth": {},
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkhSIiwiZW1wbG95ZWVJZCI6bnVsbCwiaWF0IjoxNzg1NTY1ODI0LCJleHAiOjE3ODU2NTIyMjR9.y_C9GXwikUXht1z5neaeT-NQp-pAfvZvc-slvo_3-Uk",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"employeeId\": 1,\r\n  \"month\": 10,\r\n  \"year\": 2023,\r\n  \"lopDays\": 2\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:4000/api/payslips/generate",
+                    "path": [
+                        "api",
+                        "payslips",
+                        "generate"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "protocol": "http",
+                    "port": "4000",
+                    "query": [],
+                    "variable": []
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {
+                "strictSSL": false,
+                "followRedirects": true
+            }
+        },
+        {
+            "name": "get payslips",
+            "description": "",
+            "event": [],
+            "auth": {},
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkhSIiwiZW1wbG95ZWVJZCI6bnVsbCwiaWF0IjoxNzg1NTY1ODI0LCJleHAiOjE3ODU2NTIyMjR9.y_C9GXwikUXht1z5neaeT-NQp-pAfvZvc-slvo_3-Uk",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "body": {},
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:4000/api/payslips",
+                    "path": [
+                        "api",
+                        "payslips"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "protocol": "http",
+                    "port": "4000",
+                    "query": [],
+                    "variable": []
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {
+                "strictSSL": false,
+                "followRedirects": true
+            }
+        },
+        {
+            "name": "Get All Employees",
+            "description": "",
+            "event": [],
+            "auth": {},
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkhSIiwiZW1wbG95ZWVJZCI6bnVsbCwiaWF0IjoxNzg1NjcxMDI0LCJleHAiOjE3ODU3NTc0MjR9.3L4qFJ9zHXugaXuqiEFZh0a_DzTVuiic1MFG5M20faw",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "body": {},
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:4000/api/employees",
+                    "path": [
+                        "api",
+                        "employees"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "protocol": "http",
+                    "port": "4000",
+                    "query": [],
+                    "variable": []
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {
+                "strictSSL": false,
+                "followRedirects": true
+            }
+        },
+        {
+            "name": "Download Payslip",
+            "description": "",
+            "event": [],
+            "auth": {},
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkhSIiwiZW1wbG95ZWVJZCI6bnVsbCwiaWF0IjoxNzg1NjcxMDI0LCJleHAiOjE3ODU3NTc0MjR9.3L4qFJ9zHXugaXuqiEFZh0a_DzTVuiic1MFG5M20faw",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "body": {},
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:4000/api/payslips/3/download",
+                    "path": [
+                        "api",
+                        "payslips",
+                        "3",
+                        "download"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "protocol": "http",
+                    "port": "4000",
+                    "query": [],
+                    "variable": []
+                }
+            },
+            "response": [],
+            "protocolProfileBehavior": {
+                "strictSSL": false,
+                "followRedirects": true
+            }
+        }
+    ],
+    "variable": [],
+    "event": [],
+    "auth": {}
+}

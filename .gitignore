@@ -1,0 +1,20 @@
+# Dependency folders
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Environment files (Security!)
+.env
+backend/.env
+
+# Build folders
+dist/
+build/
+
+# Temporary generated files
+backend/temp/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
